@@ -8,66 +8,54 @@
 import SwiftUI
 
 struct ContentView: View {
+    let question = "What was the first computer bug?"
+    let possibleAnswers = [
+        "Fly",
+        "Ant",
+        "Beatle",
+        "Moth"
+    
+    ]
     var body: some View {
-        VStack {
-            Text("Questionnaire!")
-                .font(.largeTitle)
-                .foregroundColor(Color.red)
-            .padding()
-            Text("Question 1 / 4")
+        ZStack {
+            Color(.sRGB, red: 0.7, green: 0.75, blue: 0.75, opacity: 0.4)
+                .ignoresSafeArea()
+            VStack {
+                Text("Questionnaire!")
+                    .font(.largeTitle)
+                    .foregroundColor(Color.red)
                 .padding()
-            Spacer()
-            Text("What is 1 + 1?")
-                .font(.title)
-                .padding()
-            Spacer()
-            Spacer()
-            HStack {
-                AnswerButton()
-                
-                Button(action: {
-                    print("You selected 2")
-                }) {
-                    Text("1")
+                Text("Question 1 / 4")
+                    .padding()
+                Spacer()
+                Text(question)
+                    .font(.title)
+                    .multilineTextAlignment(.center)
+                    .padding()
+                Spacer()
+                Spacer()
+                HStack {
+                    ForEach(possibleAnswers.indices) { index in
+                        AnswerButton(text: possibleAnswers[index])
+                    }
                 }
-                .padding()
-            .border(Color.blue, width: 4)
-                Button(action: {
-                    print("You selected 2")
-                }) {
-                    Text("2")
-                }
-                .padding()
-            .border(Color.blue, width: 4)
-                Button(action: {
-                    print("You selected 3")
-                }) {
-                    Text("3")
-                }
-                .padding()
-            .border(Color.blue, width: 4)
-                Button(action: {
-                    print("You selected 4")
-                }) {
-                    Text("4")
-                }
-                .padding()
-            .border(Color.blue, width: 4)
             }
             
         }
+        
     }
 }
 
 struct AnswerButton: View {
+    let text: String
     var body: some View {
         Button(action: {
-            print("You selected 4")
+            print("You selected \(text)")
         }) {
-            Text("4")
+            Text(text)
         }
         .padding()
-    .border(Color.blue, width: 4)
+        .border(Color.blue, width: 4)
     }
 }
 
@@ -75,6 +63,8 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .previewInterfaceOrientation(.portrait)
-            
+        ContentView()
+            .previewInterfaceOrientation(.landscapeLeft)
+            .preferredColorScheme(.dark)
     }
 }
