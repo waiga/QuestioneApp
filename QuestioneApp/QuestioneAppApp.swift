@@ -11,7 +11,7 @@ import SwiftUI
 struct QuestioneAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(question: Question.allQuestions[0])
         }
     }
 }

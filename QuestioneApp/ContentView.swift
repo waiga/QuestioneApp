@@ -8,14 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    let question = "What was the first computer bug?"
-    let possibleAnswers = [
-        "Fly",
-        "Ant",
-        "Beatle",
-        "Moth"
+    let question: Question
     
-    ]
+    var guessedIndex: Int? = nil
+   
     var body: some View {
         ZStack {
             Color(.sRGB, red: 0.7, green: 0.75, blue: 0.75, opacity: 0.4)
@@ -28,20 +24,24 @@ struct ContentView: View {
                 Text("Question 1 / 4")
                     .padding()
                 Spacer()
-                Text(question)
+                Text(question.questionText)
                     .font(.title)
                     .multilineTextAlignment(.center)
                     .padding()
                 Spacer()
                 Spacer()
                 HStack {
-                    ForEach(possibleAnswers.indices) { index in
-                        AnswerButton(text: possibleAnswers[index])
+                    ForEach(question.possibleAnswers.indices) { index in
+                        AnswerButton(text: question.possibleAnswers[index])
                     }
                 }
             }
-            
         }
+    }
+    
+    func colorForButton(at buttonIndex: Int) -> Color {
+        
+        
         
     }
 }
@@ -61,9 +61,9 @@ struct AnswerButton: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(question: Question.allQuestions[1])
             .previewInterfaceOrientation(.portrait)
-        ContentView()
+        ContentView(question: Question.allQuestions[0])
             .previewInterfaceOrientation(.landscapeLeft)
             .preferredColorScheme(.dark)
     }
