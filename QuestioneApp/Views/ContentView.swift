@@ -10,12 +10,12 @@ import SwiftUI
 struct ContentView: View {
     let question: Question
     
-    var guessedIndex: Int? = nil
+    @State var guessedIndex: Int? = nil
    
     var body: some View {
         ZStack {
             Color(.sRGB, red: 0.7, green: 0.75, blue: 0.75, opacity: 0.4)
-                .ignoresSafeArea()
+                //.ignoresSafeArea()
             VStack {
                 Text("Questionnaire!")
                     .font(.largeTitle)
@@ -32,7 +32,12 @@ struct ContentView: View {
                 Spacer()
                 HStack {
                     ForEach(question.possibleAnswers.indices) { index in
-                        AnswerButton(text: question.possibleAnswers[index])
+                        AnswerButton(text: question.possibleAnswers[index]) {
+                            guessedIndex = index
+                            print("New Print Location!")
+                        }
+                        .background(colorForButton(at: index))
+                            //.disabled(guessedIndex != nil)
                     }
                 }
             }
@@ -40,28 +45,36 @@ struct ContentView: View {
     }
     
     func colorForButton(at buttonIndex: Int) -> Color {
-        
-        
-        
+        guard let guessedIndex = guessedIndex, guessedIndex == buttonIndex else {
+            return .clear
+        }
+        if guessedIndex == question.correctAnswerIndex {
+            return .green
+        } else {
+            return .red
+        }
+
     }
 }
 
 struct AnswerButton: View {
     let text: String
+    let onClick: () -> Void
     var body: some View {
-        Button(action: {
-            print("You selected \(text)")
-        }) {
-            Text(text)
-        }
-        .padding()
-        .border(Color.blue, width: 4)
+            Button(action: {
+                print("You selected \(text)")
+                onClick()
+            }) {
+                Text(text)
+            }
+            .padding()
+        .border(Color.blue, width: 3)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(question: Question.allQuestions[1])
+        ContentView(question: Question.allQuestions[0])
             .previewInterfaceOrientation(.portrait)
         ContentView(question: Question.allQuestions[0])
             .previewInterfaceOrientation(.landscapeLeft)

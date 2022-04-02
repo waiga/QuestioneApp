@@ -54,8 +54,8 @@
 			isa = PBXGroup;
 			children = (
 				5F3E16EF27F80694006186FC /* QuestioneAppApp.swift */,
-				5F3E16F127F80694006186FC /* ContentView.swift */,
-				5F3E16FD27F895BD006186FC /* Question.swift */,
+				5F3E170027F8A855006186FC /* Views */,
+				5F3E16FF27F8A848006186FC /* Models */,
 				5F3E16F327F80696006186FC /* Assets.xcassets */,
 				5F3E16F527F80696006186FC /* Preview Content */,
 			);
@@ -68,6 +68,22 @@
 				5F3E16F627F80696006186FC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5F3E16FF27F8A848006186FC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5F3E16FD27F895BD006186FC /* Question.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5F3E170027F8A855006186FC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5F3E16F127F80694006186FC /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
