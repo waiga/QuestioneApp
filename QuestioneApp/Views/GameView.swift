@@ -43,7 +43,7 @@ struct GameView: View {
                 }
                 Spacer()
                 if guessedIndex != nil {
-                    BottomText(str: "Next")
+                    BottomText(str: "Next") {}
                 }
                 //Spacer()
             }
