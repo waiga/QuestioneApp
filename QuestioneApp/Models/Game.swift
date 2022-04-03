@@ -13,19 +13,27 @@ struct Game {
     
     private let questions = Question.allQuestions.shuffled()
     
-    private var currentQuestionIndex = 0
+    private(set) var currentQuestionIndex = 0
+    
+    private(set) var selectiones = [Question: Int]()
     
     //MARK: - Internal Methods and Properties
     
     var currentQuestion: Question {
         questions[currentQuestionIndex]
     }
-    
+    var questionCount: Int {
+        questions.count
+    }
     
     
     mutating func advanceGameState() {
         let nextQuestionIndex = currentQuestionIndex + 1
         currentQuestionIndex = nextQuestionIndex
+    }
+    
+    mutating func makeSelection(at index: Int) {
+        selectiones[currentQuestion] = index
     }
     
 }

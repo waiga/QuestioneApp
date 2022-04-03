@@ -11,7 +11,7 @@ struct GameView: View {
     @StateObject var viewModel = GameViewModel()
     //let question: Question
     
-    @State var guessedIndex: Int? = nil
+    //@State var selectionedIndex: Int? = nil
    
     var body: some View {
         ZStack {
@@ -22,7 +22,7 @@ struct GameView: View {
                     .font(.largeTitle)
                     .foregroundColor(Color.red)
                 .padding()
-                Text("Question 1 / 4")
+                Text(viewModel.progressText)
                     .padding()
                 Spacer()
                 Text(viewModel.questionText)
@@ -34,16 +34,22 @@ struct GameView: View {
                 HStack {
                     ForEach(viewModel.answerIndices) { index in
                         AnswerButton(text: viewModel.answerText(for: index)) {
-                            guessedIndex = index
-                            print("New Print Location!")
+                            viewModel.makeSelectionForCurrentQuestion(at: index)
+                            //selectionedIndex = index
+                            //print("New Print Location!")
                         }
-                        .background(colorForButton(at: index))
-                        
-                            //.disabled(guessedIndex != nil)
+                        .background(
+                            viewModel.colorForButton(at: index)
+                            //colorForButton(at: index)
+                        )
+                        //.disabled(viewModel.selectionWasMade)
+                            //.disabled(selectionedIndex != nil)
                     }
                 }
                 Spacer()
-                if guessedIndex != nil {
+                if viewModel.selectionWasMade
+                    //selectionedIndex != nil
+                {
                     BottomText(str: "Next") {
                         viewModel.advanceGameState()
                     }
@@ -54,19 +60,7 @@ struct GameView: View {
         }
     }
     
-    func colorForButton(at buttonIndex: Int) -> Color {
-        guard let guessedIndex = guessedIndex, guessedIndex == buttonIndex else {
-            return .clear
-        }
-        if guessedIndex == viewModel.correctAnswerIndex
-            //question.correctAnswerIndex
-        {
-            return .green
-        } else {
-            return .red
-        }
-
-    }
+    
 }
 
 struct AnswerButton: View {
