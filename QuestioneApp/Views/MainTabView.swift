@@ -10,7 +10,8 @@ import SwiftUI
 struct MainTabView: View {
     var body: some View {
         TabView {
-            GameView(question: Question.allQuestions[0])
+            //GameView(question: Question.allQuestions[0])
+            GameView()
                 .tabItem { Label("Game", systemImage: "gamecontroller")}
             ControlsView()
                 .tabItem {

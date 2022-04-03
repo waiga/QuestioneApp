@@ -21,8 +21,11 @@ struct Game {
         questions[currentQuestionIndex]
     }
     
+    
+    
     mutating func advanceGameState() {
         let nextQuestionIndex = currentQuestionIndex + 1
         currentQuestionIndex = nextQuestionIndex
     }
+    
 }

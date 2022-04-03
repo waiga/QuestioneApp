@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct GameView: View {
-    let question: Question
+    @StateObject var viewModel = GameViewModel()
+    //let question: Question
     
     @State var guessedIndex: Int? = nil
    
@@ -24,15 +25,15 @@ struct GameView: View {
                 Text("Question 1 / 4")
                     .padding()
                 Spacer()
-                Text(question.questionText)
+                Text(viewModel.questionText)
                     .font(.title)
                     .multilineTextAlignment(.center)
                     .padding()
                 Spacer()
                 Spacer()
                 HStack {
-                    ForEach(question.possibleAnswers.indices) { index in
-                        AnswerButton(text: question.possibleAnswers[index]) {
+                    ForEach(viewModel.answerIndices) { index in
+                        AnswerButton(text: viewModel.answerText(for: index)) {
                             guessedIndex = index
                             print("New Print Location!")
                         }
@@ -43,7 +44,9 @@ struct GameView: View {
                 }
                 Spacer()
                 if guessedIndex != nil {
-                    BottomText(str: "Next") {}
+                    BottomText(str: "Next") {
+                        viewModel.advanceGameState()
+                    }
                 }
                 //Spacer()
             }
@@ -55,7 +58,9 @@ struct GameView: View {
         guard let guessedIndex = guessedIndex, guessedIndex == buttonIndex else {
             return .clear
         }
-        if guessedIndex == question.correctAnswerIndex {
+        if guessedIndex == viewModel.correctAnswerIndex
+            //question.correctAnswerIndex
+        {
             return .green
         } else {
             return .red
@@ -81,7 +86,8 @@ struct AnswerButton: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(question: Question.allQuestions[0])
+        GameView()
+        //GameView(question: Question.allQuestions[0])
             .previewInterfaceOrientation(.portrait)
 //        GameView(question: Question.allQuestions[0])
 //            .previewInterfaceOrientation(.landscapeLeft)
