@@ -11,7 +11,8 @@ import SwiftUI
 struct QuestioneAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(question: Question.allQuestions[0])
+            MainTabView()
+            //GameView(question: Question.allQuestions[0])
         }
     }
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct GameView: View {
     let question: Question
     
     @State var guessedIndex: Int? = nil
@@ -15,7 +15,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             Color(.sRGB, red: 0.7, green: 0.75, blue: 0.75, opacity: 0.4)
-                //.ignoresSafeArea()
+                .ignoresSafeArea()
             VStack {
                 Text("Questionnaire!")
                     .font(.largeTitle)
@@ -37,10 +37,17 @@ struct ContentView: View {
                             print("New Print Location!")
                         }
                         .background(colorForButton(at: index))
+                        
                             //.disabled(guessedIndex != nil)
                     }
                 }
+                Spacer()
+                if guessedIndex != nil {
+                    BottomText(str: "Next")
+                }
+                //Spacer()
             }
+            .padding(.bottom)
         }
     }
     
@@ -74,10 +81,10 @@ struct AnswerButton: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(question: Question.allQuestions[0])
+        GameView(question: Question.allQuestions[0])
             .previewInterfaceOrientation(.portrait)
-        ContentView(question: Question.allQuestions[0])
-            .previewInterfaceOrientation(.landscapeLeft)
-            .preferredColorScheme(.dark)
+//        GameView(question: Question.allQuestions[0])
+//            .previewInterfaceOrientation(.landscapeLeft)
+//            .preferredColorScheme(.dark)
     }
 }
