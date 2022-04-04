@@ -50,17 +50,16 @@ struct GameView: View {
                 if viewModel.guessWasMade
                     //selectionedIndex != nil
                 {
-                    BottomText(str: "다음 문항") {
-                        viewModel.advanceGameState()
-                    }
+                    Button(action: viewModel.advanceGameState, label: {BottomText(str: "다음 문항")})
+//                    BottomText(str: "다음 문항") {
+//                        viewModel.advanceGameState()
+//                    }
                 }
                 //Spacer()
             }
             .padding(.bottom)
         }
     }
-    
-    
 }
 
 struct AnswerButton: View {

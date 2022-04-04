@@ -17,6 +17,8 @@ struct Game {
     
     private(set) var selections = [Question: Int]()
     
+    private var gameIsOver: Bool = false
+    
     //MARK: - Internal Methods and Properties
     
     var currentQuestion: Question {
@@ -29,7 +31,12 @@ struct Game {
     
     mutating func advanceGameState() {
         let nextQuestionIndex = currentQuestionIndex + 1
-        currentQuestionIndex = nextQuestionIndex
+        if !questions.indices.contains(nextQuestionIndex) {
+            gameIsOver = true
+            print("Game Over!")
+        } else {
+            currentQuestionIndex = nextQuestionIndex
+        }
     }
     
     mutating func makeSelection(at index: Int) {

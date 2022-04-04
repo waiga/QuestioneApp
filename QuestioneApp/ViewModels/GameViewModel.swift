@@ -41,10 +41,10 @@ class GameViewModel: ObservableObject {
     }
     
     func colorForButton(at buttonIndex: Int) -> Color {
-        guard let guessedIndex = game.selections[game.currentQuestion], guessedIndex == buttonIndex else {
+        guard let selectedIndex = game.selections[game.currentQuestion], selectedIndex == buttonIndex else {
             return .clear
         }
-        if guessedIndex == correctAnswerIndex
+        if selectedIndex == correctAnswerIndex
             //question.correctAnswerIndex
         {
             return .green
@@ -54,3 +54,5 @@ class GameViewModel: ObservableObject {
 
     }
 }
+
+// shift + command + f -> search
