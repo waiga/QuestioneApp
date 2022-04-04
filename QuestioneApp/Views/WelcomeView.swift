@@ -11,7 +11,8 @@ struct WelcomeView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color(.sRGB, red: 0.7, green: 0.75, blue: 0.75, opacity: 0.4).ignoresSafeArea()
+                GameColor.main.ignoresSafeArea()
+//                Color(.sRGB, red: 0.7, green: 0.75, blue: 0.75, opacity: 0.4).ignoresSafeArea()
                 VStack {
                     Text("질문지!")
                         .font(.largeTitle)
@@ -22,14 +23,13 @@ struct WelcomeView: View {
                         .padding()
                     Spacer()
                     NavigationLink(destination: GameView(),
-                                   label: { BottomText(str: "시작하기").padding() })
-                    
-                    
+                                   label: {
+                        BottomText(str: "시작하기")
+                            .padding(.bottom)
+                    })
                 }
-                
             }
         }
-        
     }
 }
 

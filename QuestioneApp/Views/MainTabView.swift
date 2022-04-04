@@ -11,7 +11,7 @@ struct MainTabView: View {
     var body: some View {
         TabView {
             //GameView(question: Question.allQuestions[0])
-            GameView()
+            WelcomeView()
                 .tabItem { Label("Game", systemImage: "gamecontroller")}
             ControlsView()
                 .tabItem {

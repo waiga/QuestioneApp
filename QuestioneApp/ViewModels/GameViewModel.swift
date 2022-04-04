@@ -32,6 +32,23 @@ class GameViewModel: ObservableObject {
     var progressText: String {
         "Question \(game.currentQuestionIndex + 1) / \(game.questionCount) "
     }
+//    var correctSelectionCount: Int {
+//        game.selectionCount.correct
+//    }
+//    
+//    var incorrectSlectionCount: Int {
+//        game.selectionCount.incorrect
+//    }
+    
+    var selectionCount: (Int, Int) {
+        game.selectionCount
+    }
+    var gameIsOver: Bool {
+        game.gameIsOver
+    }
+    var gameStartTime: Date {
+        game.startTime
+    }
     
     func makeGuessForCurrentQuestion(at index: Int) {
         game.makeSelection(at: index)

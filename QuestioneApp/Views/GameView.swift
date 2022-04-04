@@ -15,8 +15,8 @@ struct GameView: View {
    
     var body: some View {
         ZStack {
-            Color(.sRGB, red: 0.7, green: 0.75, blue: 0.75, opacity: 0.4)
-                .ignoresSafeArea()
+            GameColor.main.ignoresSafeArea()
+            //Color(.sRGB, red: 0.7, green: 0.75, blue: 0.75, opacity: 0.4)
             VStack {
                 Text("질문지!")
                     .font(.largeTitle)
@@ -59,7 +59,15 @@ struct GameView: View {
             }
             .padding(.bottom)
         }
+        .navigationBarHidden(true)
+        .background(resultsNavigationLink)
     }
+    private var resultsNavigationLink: some View {
+            NavigationLink(
+                destination: ResultsView(viewModel: ResultsViewModel(selectionCount: viewModel.selectionCount, gameStartTime: viewModel.gameStartTime, gameEndTime: Date() )),
+                isActive: .constant(viewModel.gameIsOver),
+                label: { EmptyView() })
+        }
 }
 
 struct AnswerButton: View {
@@ -79,7 +87,9 @@ struct AnswerButton: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView()
+        NavigationView {
+            GameView()
+        }
         //GameView(question: Question.allQuestions[0])
             .previewInterfaceOrientation(.portrait)
 //        GameView(question: Question.allQuestions[0])

@@ -13,6 +13,9 @@
 		5F3E16F727F80696006186FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F3E16F627F80696006186FC /* Preview Assets.xcassets */; };
 		5F3E16FE27F895BD006186FC /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3E16FD27F895BD006186FC /* Question.swift */; };
 		5F497E9627FAAC4000230A94 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F497E9527FAAC3F00230A94 /* WelcomeView.swift */; };
+		5F497E9827FAB18700230A94 /* GameColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F497E9727FAB18700230A94 /* GameColor.swift */; };
+		5F497E9A27FAB3D500230A94 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F497E9927FAB3D500230A94 /* ResultsView.swift */; };
+		5F497E9C27FABCC400230A94 /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F497E9B27FABCC400230A94 /* ResultViewModel.swift */; };
 		5FFCB95727F976FD00499991 /* BottomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFCB95627F976FD00499991 /* BottomText.swift */; };
 		5FFCB95927F9859F00499991 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFCB95827F9859F00499991 /* MainTabView.swift */; };
 		5FFCB95B27F987FC00499991 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFCB95A27F987FC00499991 /* ControlsView.swift */; };
@@ -28,6 +31,9 @@
 		5F3E16F627F80696006186FC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5F3E16FD27F895BD006186FC /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		5F497E9527FAAC3F00230A94 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		5F497E9727FAB18700230A94 /* GameColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameColor.swift; sourceTree = "<group>"; };
+		5F497E9927FAB3D500230A94 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		5F497E9B27FABCC400230A94 /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
 		5FFCB95627F976FD00499991 /* BottomText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomText.swift; sourceTree = "<group>"; };
 		5FFCB95827F9859F00499991 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		5FFCB95A27F987FC00499991 /* ControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
@@ -100,6 +106,7 @@
 				5FFCB95A27F987FC00499991 /* ControlsView.swift */,
 				5FFCB95627F976FD00499991 /* BottomText.swift */,
 				5F497E9527FAAC3F00230A94 /* WelcomeView.swift */,
+				5F497E9927FAB3D500230A94 /* ResultsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -108,6 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				5FFCB95E27FA001200499991 /* GameViewModel.swift */,
+				5F497E9727FAB18700230A94 /* GameColor.swift */,
+				5F497E9B27FABCC400230A94 /* ResultViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -183,10 +192,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F3E16FE27F895BD006186FC /* Question.swift in Sources */,
+				5F497E9827FAB18700230A94 /* GameColor.swift in Sources */,
 				5FFCB95727F976FD00499991 /* BottomText.swift in Sources */,
 				5FFCB95D27F9B04000499991 /* Game.swift in Sources */,
 				5F3E16F227F80694006186FC /* GameView.swift in Sources */,
+				5F497E9A27FAB3D500230A94 /* ResultsView.swift in Sources */,
 				5F497E9627FAAC4000230A94 /* WelcomeView.swift in Sources */,
+				5F497E9C27FABCC400230A94 /* ResultViewModel.swift in Sources */,
 				5FFCB95F27FA001200499991 /* GameViewModel.swift in Sources */,
 				5F3E16F027F80694006186FC /* QuestioneAppApp.swift in Sources */,
 				5FFCB95B27F987FC00499991 /* ControlsView.swift in Sources */,
