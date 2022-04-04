@@ -34,14 +34,14 @@ class GameViewModel: ObservableObject {
     }
     
     func makeGuessForCurrentQuestion(at index: Int) {
-        game.makeGuess(at: index)
+        game.makeSelection(at: index)
     }
     var guessWasMade: Bool {
-        game.guesses[game.currentQuestion] != nil
+        game.selections[game.currentQuestion] != nil
     }
     
     func colorForButton(at buttonIndex: Int) -> Color {
-        guard let guessedIndex = game.guesses[], guessedIndex == buttonIndex else {
+        guard let guessedIndex = game.selections[game.currentQuestion], guessedIndex == buttonIndex else {
             return .clear
         }
         if guessedIndex == correctAnswerIndex

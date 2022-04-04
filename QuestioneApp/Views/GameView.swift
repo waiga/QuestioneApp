@@ -18,7 +18,7 @@ struct GameView: View {
             Color(.sRGB, red: 0.7, green: 0.75, blue: 0.75, opacity: 0.4)
                 .ignoresSafeArea()
             VStack {
-                Text("Questionnaire!")
+                Text("질문지!")
                     .font(.largeTitle)
                     .foregroundColor(Color.red)
                 .padding()
@@ -34,7 +34,7 @@ struct GameView: View {
                 HStack {
                     ForEach(viewModel.answerIndices) { index in
                         AnswerButton(text: viewModel.answerText(for: index)) {
-                            viewModel.makeSelectionForCurrentQuestion(at: index)
+                            viewModel.makeGuessForCurrentQuestion(at: index)
                             //selectionedIndex = index
                             //print("New Print Location!")
                         }
@@ -47,10 +47,10 @@ struct GameView: View {
                     }
                 }
                 Spacer()
-                if viewModel.selectionWasMade
+                if viewModel.guessWasMade
                     //selectionedIndex != nil
                 {
-                    BottomText(str: "Next") {
+                    BottomText(str: "다음 문항") {
                         viewModel.advanceGameState()
                     }
                 }

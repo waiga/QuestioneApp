@@ -15,7 +15,7 @@ struct Game {
     
     private(set) var currentQuestionIndex = 0
     
-    private(set) var selectiones = [Question: Int]()
+    private(set) var selections = [Question: Int]()
     
     //MARK: - Internal Methods and Properties
     
@@ -33,7 +33,7 @@ struct Game {
     }
     
     mutating func makeSelection(at index: Int) {
-        selectiones[currentQuestion] = index
+        selections[currentQuestion] = index
     }
     
 }
